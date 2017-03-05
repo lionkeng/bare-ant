@@ -70,7 +70,7 @@ module.exports = {
         test: /(\.less)$/,
         loader: ExtractTextPlugin.extract({
             fallback: 'style-loader', 
-            use: `css!less?modifyVars=${JSON.stringify(theme)}`})
+            use: `css-loader!less-loader?{modifyVars:${JSON.stringify(theme)}}`})
       },      
     ],
   },
