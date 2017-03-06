@@ -12,7 +12,7 @@
     // Transpile React components to JavaScript
   ],
   "plugins": [
-    ["import", [{libraryName: "antd", style: "css" }]],
+    ["import", [{libraryName: "antd", style: true }]],
     "react-hot-loader/babel"
     // Enables React code to work with HMR.
   ]
