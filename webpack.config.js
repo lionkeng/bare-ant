@@ -3,9 +3,19 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const theme = {
-  "primary-color": "#FF0000"
-}
+let { appConfig, theme } = require('./custom/index.js');
+
+appConfig = appConfig || {
+  title: 'Test App',
+  favicon: '',
+  template: 'index-template.ejs'
+};
+
+theme = theme || {};
+
+const title    = appConfig.title || 'Test App';
+const favicon  = appConfig.favicon || '';
+const template = appConfig.template || 'index-template.ejs';
 
 module.exports = {
   entry: [
@@ -76,9 +86,8 @@ module.exports = {
   },
 
   plugins: [
-    new HtmlWebpackPlugin({title: 'Test App', template: 'index-template.ejs'}), 
+    new HtmlWebpackPlugin({title, favicon, template}),
     
-
     new ExtractTextPlugin("styles.css"),
 
 
